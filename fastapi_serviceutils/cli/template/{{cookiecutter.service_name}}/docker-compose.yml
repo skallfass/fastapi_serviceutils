@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+    {{cookiecutter.service_name}}:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: {{cookiecutter.service_name}}
+        ports:
+            - "{{cookiecutter.service_port}}:{{cookiecutter.service_port}}"
+        environment:
+            - {{cookiecutter.service_name.upper()}}_LOGGER__PATH="./log/{{cookiecutter.service_name}}"
+            - {{cookiecutter.service_name.upper()}}_LOGGER__FILENAME="service.log"
+            - {{cookiecutter.service_name.upper()}}_SERVICE__MODE="prod"
+        volumes:
+            - type: bind
+              source: "./log/{{cookiecutter.service_name}}"
+              target: "log/{{cookiecutter.service_name}}"

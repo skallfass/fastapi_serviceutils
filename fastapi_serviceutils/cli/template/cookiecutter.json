@@ -1,0 +1,8 @@
+{
+    "service_name": "exampleservice",
+    "service_port": 50001,
+    "author": "dummy user",
+    "author_email": "user@dummy.org",
+    "use_prometheus": true,
+    "endpoint": "example"
+}

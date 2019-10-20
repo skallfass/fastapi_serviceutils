@@ -1,0 +1,66 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+#fail_fast: True
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+        - id: check-docstring-first
+          types: [python]
+        - id: trailing-whitespace
+          args: [--markdown-linebreak-ext=md]
+          types: [python]
+        - id: double-quote-string-fixer
+          types: [python]
+        - id: check-executables-have-shebangs
+        - id: check-case-conflict
+          types: [python]
+        - id: check-toml
+        - id: check-yaml
+    - repo: https://gitlab.com/smop/pre-commit-hooks
+      rev: v1.0.0
+      hooks:
+        - id: check-poetry
+        - id: check-gitlab-ci
+    - repo: https://github.com/pre-commit/pygrep-hooks
+      rev: v1.4.1
+      hooks:
+        - id: python-use-type-annotations
+          types: [python]
+        - id: python-no-log-warn
+          types: [python]
+    - repo: https://github.com/asottile/reorder_python_imports
+      rev: v1.6.1
+      hooks:
+        - id: reorder-python-imports
+          types: [python]
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+        - id: check-ast
+          types: [python]
+    - repo: https://github.com/pycqa/pydocstyle
+      rev: 4.0.0
+      hooks:
+        - id: pydocstyle
+    - repo: https://github.com/codespell-project/codespell
+      rev: v1.16.0
+      hooks:
+        - id: codespell
+          args: [--ignore-words=.codespell-ignore-words.txt]
+    - repo: https://github.com/pre-commit/mirrors-yapf
+      rev: v0.28.0
+      hooks:
+        - id: yapf
+          types: [python]
+          always_run: true
+    - repo: https://gitlab.com/pycqa/flake8
+      rev: 3.7.8
+      hooks:
+        - id: flake8
+          types: [python]
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+        - id: name-tests-test
+          types: [python]

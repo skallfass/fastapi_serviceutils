@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "fastapi_serviceutils"
+version = "0.1.0"
+description = "Utils for fastapi based services."
+authors = [
+  "Simon Kallfass <skallfass@ouroboros.info>",
+]
+readme = "README.md"
+include = ['README.md', 'fastapi_serviceutils/cli/template']
+
+[tool.poetry.dependencies]
+aiofiles = "^0.4"
+cookiecutter = "^1.6"
+email-validator = "^1.0.4"
+fastapi = "^0.42"
+loguru = "^0.3"
+python = "^3.7"
+pyyaml = "^5.1"
+requests = "^2.22"
+starlette-prometheus = "^0.3"
+toolz = "^0.10"
+ujson = "^1.35"
+uvicorn = "^0.9"
+
+[tool.poetry.dev-dependencies]
+autoflake = "^1.3"
+coverage = "^4.5"
+coverage-badge = "^1"
+flake8 = "^3.7"
+ipython = "^7.8"
+isort = "^4.3"
+jedi = "^0.14.0"
+neovim = "^0.3.1"
+pre-commit = ">=1.18.3"
+pudb = "^2019.1"
+pygments = "^2.4"
+pytest = "==5.*,>=5.0.0"
+pytest-asyncio = ">=0.10"
+pytest-cov = ">=2"
+pytest-xdist = "^1.30"
+sphinx = ">=2"
+sphinx-autodoc-typehints = ">=1.6"
+sphinx-rtd-theme = ">=0.4.3"
+yapf = "^0.27.0"
+
+[tool.poetry.extras]
+devs = [
+    "autoflake",
+    "coverage",
+    "coverage-badge",
+    "flake8",
+    "ipython",
+    "isort",
+    "jedi",
+    "neovim",
+    "pre-commit",
+    "pudb",
+    "pygments",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-xdist",
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-rtd-theme",
+    "yapf",
+]
+
+[tool.dephell.devs]
+from = {format = "poetry", path = "pyproject.toml"}
+envs = ["main", "devs"]
+
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
+envs = ["main"]
+versioning = "semver"
+
+[tool.dephell.lock]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "poetrylock", path = "poetry.lock"}
+
+[tool.poetry.scripts]
+create_service = "fastapi_serviceutils.cli.create_service:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

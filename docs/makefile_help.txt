@@ -1,0 +1,30 @@
+make[1]: Entering directory '/home/skallfass/devl/services/fastapi/fastapi_serviceutils'
+Helpers for development inside services based on fastapi using fastapi_serviceutils.
+
+  Usage:
+
+    make <target> [flags...]
+
+  Targets:
+
+    check      Run all checks defined in .pre-commit-config.yaml.
+    clean      Clean the working directory from temporary files and caches.
+    docker     Create docker-image for project.
+    docs       Create sphinx documentation for the project.
+    finalize   Finalize the main env.
+    help       Show the help prompt.
+    info       Show info about current project.
+    init       Initialize project
+    tests      Run tests using pytest.
+    update     Update environments based on pyproject.toml definitions.
+
+  Flags:
+
+
+
+  Note:
+      This workflow requires the following programs / tools to be installed:
+      - poetry
+      - dephell
+      - pyenv
+make[1]: Leaving directory '/home/skallfass/devl/services/fastapi/fastapi_serviceutils'

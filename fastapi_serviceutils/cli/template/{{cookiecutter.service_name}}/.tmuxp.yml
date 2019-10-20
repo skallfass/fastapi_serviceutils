@@ -1,0 +1,23 @@
+session_name: {{cookiecutter.service_name}}
+start_directory: "${PWD}"
+shell_command_before: source "<PLACE THE ACTIVATE COMMAND FROM VENV HERE>"
+environment:
+    PYTHONPATH: ${PWD}
+    SHELL: /usr/bin/zsh
+    EDITOR: /opt/nvim/nvim.appimage
+    {{cookiecutter.service_name.upper()}}_SERVICE__MODE: devl
+    {{cookiecutter.service_name.upper()}}_LOGGER__LEVEL: debug
+    {{cookiecutter.service_name.upper()}}_LOGGER__PATH: ./log/{{cookiecutter.service_name}}
+    {{cookiecutter.service_name.upper()}}_SERVICE__DEVELOPMENT_PORT: '{{cookiecutter.service_port}}'
+windows:
+    - window_name: development
+      layout: main-vertical
+      options:
+          main-pane-width: 100
+      panes:
+          - focus: true
+          - shell_command:
+              - make update
+              - python app/main.py --reload
+          - shell_command:
+              - pytest --looponfail
