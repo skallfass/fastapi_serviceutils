@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "fastapi_serviceutils"
-version = "0.2.0"
+version = "0.2.1"
+license = "MIT"
 description = "Utils for fastapi based services."
 authors = [
   "Simon Kallfass <skallfass@ouroboros.info>",
@@ -8,6 +9,13 @@ authors = [
 readme = "README.md"
 include = ['README.md', 'fastapi_serviceutils/cli/template']
 repository = "https://github.com/skallfass/fastapi_serviceutils"
+homepage = "https://fastapi-serviceutils.readthedocs.io/en/latest/"
+keywords = ["python", "fastapi"]
+classifiers = [
+    "Operating System :: Unix",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7"
+]
 
 [tool.poetry.dependencies]
 aiofiles = "^0.4"

@@ -7,4 +7,3 @@ Usage
    service_structure.rst
    helpers.rst
    deployment.rst
-

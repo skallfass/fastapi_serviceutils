@@ -21,14 +21,21 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='fastapi_serviceutils',
-    version='0.2.0',
+    version='0.2.1',
     description='Utils for fastapi based services.',
     python_requires='==3.*,>=3.7.0',
     project_urls={
+        'homepage': 'https://fastapi-serviceutils.readthedocs.io/en/latest/',
         'repository': 'https://github.com/skallfass/fastapi_serviceutils'
     },
     author='Simon Kallfass',
     author_email='skallfass@ouroboros.info',
+    license='MIT',
+    keywords='python fastapi',
+    classifiers=[
+        'Operating System :: Unix', 'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.7'
+    ],
     entry_points={
         'console_scripts': [
             'create_service = fastapi_serviceutils.cli.create_service:main'
@@ -44,9 +51,6 @@ setup(
         'fastapi_serviceutils.middlewares'
     ],
     package_data={
-        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app': [
-            '*.yml'
-        ],
         'fastapi_serviceutils': [
             'cli/template/*.json',
             'cli/template/{{cookiecutter.service_name}}/*.cfg',
@@ -56,6 +60,9 @@ setup(
             'cli/template/{{cookiecutter.service_name}}/*.yaml',
             'cli/template/{{cookiecutter.service_name}}/*.yml',
             'cli/template/{{cookiecutter.service_name}}/docs/*.rst'
+        ],
+        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app': [
+            '*.yml'
         ]
     },
     install_requires=[
@@ -66,7 +73,7 @@ setup(
         'ujson==1.*,>=1.35.0', 'uvicorn==0.*,>=0.9.0'
     ],
     extras_require={
-        'dev': [
+        'devs': [
             'autoflake==1.*,>=1.3.0', 'coverage==4.*,>=4.5.0',
             'coverage-badge==1.*,>=1.0.0', 'flake8==3.*,>=3.7.0',
             'ipython==7.*,>=7.8.0', 'isort==4.*,>=4.3.0', 'jedi==0.*,>=0.14.0',
@@ -77,7 +84,7 @@ setup(
             'sphinx-autodoc-typehints>=1.6', 'sphinx-rtd-theme>=0.4.3',
             'yapf==0.*,>=0.27.0'
         ],
-        'devs': [
+        'dev': [
             'autoflake==1.*,>=1.3.0', 'coverage==4.*,>=4.5.0',
             'coverage-badge==1.*,>=1.0.0', 'flake8==3.*,>=3.7.0',
             'ipython==7.*,>=7.8.0', 'isort==4.*,>=4.3.0', 'jedi==0.*,>=0.14.0',

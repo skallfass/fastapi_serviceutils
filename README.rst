@@ -1,12 +1,46 @@
 
 
-.. image:: doc/_static/coverage.svg
-   :target: doc/_static/coverage.svg
+.. image:: https://github.com/skallfass/fastapi_serviceutils/blob/master/docs/_static/coverage.svg
+   :target: https://github.com/skallfass/fastapi_serviceutils/blob/master/docs/_static/coverage.svg
    :alt: coverage
+
+
+.. image:: https://badge.fury.io/py/fastapi-serviceutils.svg
+   :target: https://pypi.python.org/pypi/fastapi-serviceutils/
+   :alt: PyPI version fury.io
+
+
+.. image:: https://img.shields.io/pypi/pyversions/fastapi-serviceutils.svg
+   :target: https://pypi.python.org/pypi/fastapi-serviceutils/
+   :alt: PyPI pyversions
+
+
+.. image:: https://readthedocs.org/projects/fastapi-serviceutils/badge/?version=latest
+   :target: http://fastapi-serviceutils.readthedocs.io/?badge=latest
+   :alt: Documentation Status
+
+
+.. image:: https://img.shields.io/badge/License-MIT-blue.svg
+   :target: https://img.shields.io/badge/License-MIT-blue.svg
+   :alt: MIT License
+
+
+.. image:: https://github.com/dephell/dephell/blob/master/assets/badge.svg
+   :target: https://github.com/dephell/dephell/blob/master/assets/badge.svg
+   :alt: Powered by Dephell
 
 
 Installation
 ------------
+
+.. code-block:: bash
+
+       pip install fastapi-serviceutils
+
+Usage
+-----
+
+For more details and usage see: `readthedocs <https://fastapi-serviceutils.readthedocs.io/en/latest/>`_
 
 Development
 -----------
@@ -27,7 +61,7 @@ This will create the dev environment exampleservice/dev. Activate it using:
        dephell venv shell --env devs
 
 Start development
------------------
+^^^^^^^^^^^^^^^^^
 
 **Note:**
 
@@ -39,7 +73,7 @@ project in a new terminal using
        dephell venv shell --env devs
 
 Updating dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 After each change in dependencies defined at ``pyproject.toml`` run the
 following to ensure the environment-definition and lock-file are up to date:
@@ -49,7 +83,7 @@ following to ensure the environment-definition and lock-file are up to date:
        make update
 
 Checking with linters and checkers
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To run all pre-commit-hooks manually run:
 
@@ -58,7 +92,7 @@ To run all pre-commit-hooks manually run:
        make check
 
 Info about project-state
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 To show summary about project run:
 
@@ -67,7 +101,7 @@ To show summary about project run:
        make info
 
 Documentation
--------------
+^^^^^^^^^^^^^
 
 The project's developer documentation is written using Sphinx.
 
@@ -91,7 +125,7 @@ There is also a swagger-documentation to be used for users of the service.
 The apidoc can be found at ``/apidoc/index.html``.
 
 Tests
------
+^^^^^
 
 For testing we use ``pytest``\ , for details see
 `Pytest Docs <http://doc.pytest.org/en/latest/>`_.

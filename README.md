@@ -1,7 +1,22 @@
-![coverage](doc/_static/coverage.svg)
+![coverage](https://github.com/skallfass/fastapi_serviceutils/blob/master/docs/_static/coverage.svg)
+[![PyPI version fury.io](https://badge.fury.io/py/fastapi-serviceutils.svg)](https://pypi.python.org/pypi/fastapi-serviceutils/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/fastapi-serviceutils.svg)](https://pypi.python.org/pypi/fastapi-serviceutils/)
+[![Documentation Status](https://readthedocs.org/projects/fastapi-serviceutils/badge/?version=latest)](http://fastapi-serviceutils.readthedocs.io/?badge=latest)
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Powered by Dephell](https://github.com/dephell/dephell/blob/master/assets/badge.svg)
 
 
 ## Installation
+
+```bash
+    pip install fastapi-serviceutils
+```
+
+
+## Usage
+
+For more details and usage see: [readthedocs](https://fastapi-serviceutils.readthedocs.io/en/latest/)
+
 
 ## Development
 
@@ -20,7 +35,7 @@ This will create the dev environment exampleservice/dev. Activate it using:
 ```
 
 
-## Start development
+### Start development
 
 **Note:**
 
@@ -31,7 +46,7 @@ project in a new terminal using
 ```
 
 
-## Updating dependencies
+### Updating dependencies
 
 After each change in dependencies defined at `pyproject.toml` run the
 following to ensure the environment-definition and lock-file are up to date:
@@ -40,7 +55,7 @@ following to ensure the environment-definition and lock-file are up to date:
 ```
 
 
-## Checking with linters and checkers
+### Checking with linters and checkers
 
 To run all pre-commit-hooks manually run:
 ```bash
@@ -48,7 +63,7 @@ To run all pre-commit-hooks manually run:
 ```
 
 
-## Info about project-state
+### Info about project-state
 
 To show summary about project run:
 ```bash
@@ -56,7 +71,7 @@ To show summary about project run:
 ```
 
 
-## Documentation
+### Documentation
 
 The project's developer documentation is written using Sphinx.
 
@@ -79,7 +94,7 @@ There is also a swagger-documentation to be used for users of the service.
 The apidoc can be found at ``/apidoc/index.html``.
 
 
-## Tests
+### Tests
 
 For testing we use `pytest`, for details see
 [Pytest Docs](http://doc.pytest.org/en/latest/).
