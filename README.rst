@@ -88,7 +88,7 @@ The generated HTML files will be in the ``docs/_build`` directory.
 
 There is also a swagger-documentation to be used for users of the service.
 
-The apidoc can be found at route ``/apidoc/index.html``.
+The apidoc can be found at ``/apidoc/index.html``.
 
 Tests
 -----

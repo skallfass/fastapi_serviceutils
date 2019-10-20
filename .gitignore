@@ -2,7 +2,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-setup.py
 docs/_build
 htmlcov/
 .coverage
