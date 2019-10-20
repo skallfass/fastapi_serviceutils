@@ -24,6 +24,9 @@ setup(
     version='0.1.0',
     description='Utils for fastapi based services.',
     python_requires='==3.*,>=3.7.0',
+    project_urls={
+        'repository': 'https://github.com/skallfass/fastapi_serviceutils'
+    },
     author='Simon Kallfass',
     author_email='skallfass@ouroboros.info',
     entry_points={
