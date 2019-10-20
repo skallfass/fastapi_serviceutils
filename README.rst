@@ -1,7 +1,7 @@
 
 
-.. image:: apidoc/_static/coverage.svg
-   :target: apidoc/_static/coverage.svg
+.. image:: doc/_static/coverage.svg
+   :target: doc/_static/coverage.svg
    :alt: coverage
 
 
@@ -87,14 +87,8 @@ To generate the documentation, run
 The generated HTML files will be in the ``docs/_build`` directory.
 
 There is also a swagger-documentation to be used for users of the service.
-The documentation can be found at (after starting service):
 
-
-* `http://0.0.0.0:9992/docs <http://0.0.0.0:9992/docs>`_
-* `http://0.0.0.0:9992/redoc <http://0.0.0.0:9992/redoc>`_
-
-The apidoc can be found at
-`http://0.0.0.0:9992/apidoc/index.html <http://0.0.0.0:9992/apidoc/index.html>`_.
+The apidoc can be found at route ``/apidoc/index.html``.
 
 Tests
 -----

@@ -1,4 +1,4 @@
-![coverage](apidoc/_static/coverage.svg)
+![coverage](doc/_static/coverage.svg)
 
 
 ## Installation
@@ -75,13 +75,8 @@ To generate the documentation, run
 The generated HTML files will be in the `docs/_build` directory.
 
 There is also a swagger-documentation to be used for users of the service.
-The documentation can be found at (after starting service):
 
-* [http://0.0.0.0:9992/docs](http://0.0.0.0:9992/docs)
-* [http://0.0.0.0:9992/redoc](http://0.0.0.0:9992/redoc)
-
-The apidoc can be found at
-[http://0.0.0.0:9992/apidoc/index.html](http://0.0.0.0:9992/apidoc/index.html).
+The apidoc can be found at ``/apidoc/index.html``.
 
 
 ## Tests
