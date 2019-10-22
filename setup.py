@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='fastapi_serviceutils',
-    version='0.2.1',
+    version='0.3.0',
     description='Utils for fastapi based services.',
     python_requires='==3.*,>=3.7.0',
     project_urls={
@@ -43,28 +43,11 @@ setup(
     },
     packages=[
         'fastapi_serviceutils', 'fastapi_serviceutils.base',
-        'fastapi_serviceutils.cli',
-        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app',
-        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app.endpoints',
-        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.tests',
-        'fastapi_serviceutils.default_endpoints', 'fastapi_serviceutils.docs',
-        'fastapi_serviceutils.external_resources',
+        'fastapi_serviceutils.cli', 'fastapi_serviceutils.default_endpoints',
+        'fastapi_serviceutils.docs', 'fastapi_serviceutils.external_resources',
         'fastapi_serviceutils.middlewares'
     ],
-    package_data={
-        'fastapi_serviceutils.cli': [
-            'template/*.json', 'template/{{cookiecutter.service_name}}/*.cfg',
-            'template/{{cookiecutter.service_name}}/*.md',
-            'template/{{cookiecutter.service_name}}/*.toml',
-            'template/{{cookiecutter.service_name}}/*.txt',
-            'template/{{cookiecutter.service_name}}/*.yaml',
-            'template/{{cookiecutter.service_name}}/*.yml',
-            'template/{{cookiecutter.service_name}}/docs/*.rst'
-        ],
-        'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app': [
-            '*.yml'
-        ]
-    },
+    package_data={},
     install_requires=[
         'aiofiles==0.*,>=0.4.0', 'cookiecutter==1.*,>=1.6.0',
         'email-validator==1.*,>=1.0.4', 'fastapi==0.*,>=0.42.0',
