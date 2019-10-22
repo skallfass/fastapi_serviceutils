@@ -7,7 +7,7 @@ authors = [
   "Simon Kallfass <skallfass@ouroboros.info>",
 ]
 readme = "README.md"
-include = ['README.md', 'fastapi_serviceutils/cli/template']
+include = ["README.md", "fastapi_serviceutils/cli/.fastapi_serviceutils_config.yml"]
 repository = "https://github.com/skallfass/fastapi_serviceutils"
 homepage = "https://fastapi-serviceutils.readthedocs.io/en/latest/"
 keywords = ["python", "fastapi"]
