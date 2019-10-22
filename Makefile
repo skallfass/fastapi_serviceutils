@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := help
 SHELL := bash
 
-.PHONY : clean docker docs finalize info init tests update help
-.SILENT: clean docker docs finalize info init tests update _create_devs_env _create_main_env _update_devs_env _update_main_env
+.PHONY : check clean docker docs finalize info init tests update help
+.SILENT: check clean docker docs finalize info init tests update _create_devs_env _create_main_env _update_devs_env _update_main_env
 
 python_meant=$(cat .python-version)
 python_used=$(which python)
@@ -15,10 +15,6 @@ info:
 	echo "Project:"
 	echo "========"
 	echo "version: $(value project_version)"
-	echo ""
-	echo 'Used config:' && \
-	echo '============' && \
-	cat app/config.yml && \
 	echo "" && \
 	echo 'Python:' && \
 	echo '=======' && \
@@ -36,7 +32,7 @@ info:
 # Clean the working directory from temporary files and caches.
 clean:
 	rm -rf htmlcov && \
-	rm -rf exampleservice.egg-info && \
+	rm -rf *.egg-info && \
 	rm -rf dist && \
 	rm -rf **/__pycache__ && \
 	rm -rf **/**/__pycache__ && \
@@ -59,15 +55,14 @@ _update_main_env:
 	dephell deps install --env main
 
 # Run tests using pytest.
-tests: _update_devs_env
+tests:
 	PYTHONPATH=. pytest -s
 
 # Finalize the main env.
-finalize: _update_main_env tests
-	poetry lock
+finalize: update tests
 
 # Create sphinx documentation for the project.
-docs:
+docs: update
 	make help > docs/makefile_help.txt && \
 	poetry run create_service --help > docs/create_service_help.txt && \
 	coverage-badge -f -o docs/_static/coverage.svg ; \
@@ -80,19 +75,17 @@ init: _create_main_env _create_devs_env _update_main_env _update_devs_env
 
 # Update environments based on pyproject.toml definitions.
 update: _update_main_env _update_devs_env
+	poetry lock; \
+	dephell deps convert --to requirements.txt && \
+	cp requirements.txt docs/doc_requirements.txt
 
 # Run all checks defined in .pre-commit-config.yaml.
 check: update
 	pre-commit run --all-files
 
-# Create docker-image for project.
-docker:
-	dephell deps convert --to requirements.txt && \
-	docker build -t exampleservice:$(value project_version) .
-
 # Show the help prompt.
 help:
-	@ echo 'Helpers for development inside services based on fastapi using fastapi_serviceutils.'
+	@ echo 'Helpers for development of fastapi_serviceutils.'
 	@ echo
 	@ echo '  Usage:'
 	@ echo ''

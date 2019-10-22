@@ -1,6 +1,6 @@
 session_name: fastapi_serviceutils
 start_directory: "${PWD}"
-shell_command_before: source "/home/skallfass/.local/share/dephell/venvs/fastapi_serviceutils-7Ja/devs/bin/activate"
+shell_command_before: source "/home/skallfass/.local/share/dephell/venvs/fastapi_serviceutils-7Jam/devs/bin/activate"
 environment:
     PYTHONPATH: ${PWD}
     SHELL: /usr/bin/zsh

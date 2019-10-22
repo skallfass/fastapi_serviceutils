@@ -9,7 +9,6 @@ We use Poetry_ including the dependency definition inside the
 For a wrapper around these tools we use Dephell_ and ``make`` for easier
 workflow.
 
-
 .. code-block:: bash
     :caption: dependency-management files
 

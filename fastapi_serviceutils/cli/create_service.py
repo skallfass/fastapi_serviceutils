@@ -5,6 +5,9 @@ from string import ascii_letters
 from string import digits
 
 from cookiecutter import generate
+from cookiecutter.vcs import clone
+from cookiecutter.exceptions import OutputDirExistsException
+import yaml
 
 
 def check_name(name: str, variable_name: str):
@@ -27,7 +30,7 @@ def check_name(name: str, variable_name: str):
         exit(1)
 
 
-def build_arguments():
+def build_arguments() -> Namespace:
     parser = ArgumentParser(
         description=(
             'create new service based on fastapi using fastapi_serviceutils.'
@@ -94,6 +97,7 @@ def build_arguments():
 
 
 def main():
+    repo_url = 'git+ssh://git@github.com/skallfass/fastapi_serviceutils_template.git'
     params = build_arguments()
     check_name(name=params.service_name, variable_name='service_name')
     check_name(name=params.endpoint, variable_name='endpoint')
@@ -107,12 +111,22 @@ def main():
             'endpoint': params.endpoint
         }
     }
-    generate.generate_files(
-        str(Path(__file__).parent / 'template'),
-        context=context,
-        output_dir=str(params.output_dir),
-        overwrite_if_exists=False
-    )
+    try:
+        filepath = clone(
+            repo_url,
+            clone_to_dir='/tmp',
+            no_input=False
+        )
+        generate.generate_files(
+            filepath,
+            context=context,
+            output_dir=str(params.output_dir),
+            overwrite_if_exists=False
+        )
+    except OutputDirExistsException:
+        print('Folder already exists!')
+        print('Skipped creation of new service!')
+        exit(1)
     print('Service creation sucessfull.')
     print(f'Service is at {params.output_dir}')
 

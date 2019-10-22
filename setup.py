@@ -43,6 +43,7 @@ setup(
     },
     packages=[
         'fastapi_serviceutils', 'fastapi_serviceutils.base',
+        'fastapi_serviceutils.cli',
         'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app',
         'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app.endpoints',
         'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.tests',
@@ -51,15 +52,14 @@ setup(
         'fastapi_serviceutils.middlewares'
     ],
     package_data={
-        'fastapi_serviceutils': [
-            'cli/template/*.json',
-            'cli/template/{{cookiecutter.service_name}}/*.cfg',
-            'cli/template/{{cookiecutter.service_name}}/*.md',
-            'cli/template/{{cookiecutter.service_name}}/*.toml',
-            'cli/template/{{cookiecutter.service_name}}/*.txt',
-            'cli/template/{{cookiecutter.service_name}}/*.yaml',
-            'cli/template/{{cookiecutter.service_name}}/*.yml',
-            'cli/template/{{cookiecutter.service_name}}/docs/*.rst'
+        'fastapi_serviceutils.cli': [
+            'template/*.json', 'template/{{cookiecutter.service_name}}/*.cfg',
+            'template/{{cookiecutter.service_name}}/*.md',
+            'template/{{cookiecutter.service_name}}/*.toml',
+            'template/{{cookiecutter.service_name}}/*.txt',
+            'template/{{cookiecutter.service_name}}/*.yaml',
+            'template/{{cookiecutter.service_name}}/*.yml',
+            'template/{{cookiecutter.service_name}}/docs/*.rst'
         ],
         'fastapi_serviceutils.cli.template.{{cookiecutter.service_name}}.app': [
             '*.yml'

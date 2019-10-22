@@ -3,8 +3,8 @@
 
 Getting Started
 ---------------
-After cloning the repository, you can initialize your development environment
-using
+After cloning the repository the development environment can be initialized
+using:
 
 .. code-block:: bash
 
@@ -23,8 +23,10 @@ Activate it.
        dephell venv shell --env devs
 
 
-To update dependencies and lock-file use:
+To update dependencies and ``poetry.lock``:
 
 .. code-block:: bash
 
     make update
+
+This also creates ``requirements.txt`` to be used for Docker_.
