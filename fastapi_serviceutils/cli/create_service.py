@@ -70,13 +70,6 @@ def build_arguments() -> Namespace:
         help='the email of the author of the service.'
     )
     parser.add_argument(
-        '-prom',
-        '--use_prometheus',
-        action='store_true',
-        default=True,
-        help='expose metrics for prometheus-usage.'
-    )
-    parser.add_argument(
         '-ep',
         '--endpoint',
         type=str,
@@ -107,7 +100,6 @@ def main():
             'service_port': params.service_port,
             'author': params.author,
             'author_email': params.author_email,
-            'use_prometheus': params.use_prometheus,
             'endpoint': params.endpoint
         }
     }

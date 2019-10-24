@@ -15,7 +15,6 @@ from fastapi_serviceutils.base import errors
 from fastapi_serviceutils.base import update_config
 from fastapi_serviceutils.default_endpoints import add_default_endpoints
 from fastapi_serviceutils.docs import mount_apidoc
-from fastapi_serviceutils.middlewares import prometheus
 
 Endpoints = List[Dict[str, Union[APIRouter, str]]]
 
@@ -59,11 +58,6 @@ def include_endpoints_and_middlewares_to_app(
             TrustedHostMiddleware,
             allowed_hosts=app.config.service.allowed_hosts
         )
-
-    # add exposing of metrics for prometheus monitoring
-    if app.config.service.use_prometheus:
-        app.add_middleware(prometheus.PrometheusMiddleware)
-        app.add_route('/metrics/', prometheus.metrics)
 
     # add custom exception handler to log exceptions
     if 'log_exception' in enable_middlewares:
