@@ -38,7 +38,6 @@ class ServiceConfig(BaseModel):
     apidoc_dir: str
     readme: str
     allowed_hosts: List[str]
-    use_prometheus: bool
     use_default_endpoints: List[str]
 
 

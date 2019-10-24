@@ -1,5 +1,5 @@
 make[1]: Entering directory '/home/skallfass/devl/services/fastapi/fastapi_serviceutils'
-Helpers for development inside services based on fastapi using fastapi_serviceutils.
+Helpers for development of fastapi_serviceutils.
 
   Usage:
 
@@ -9,7 +9,6 @@ Helpers for development inside services based on fastapi using fastapi_serviceut
 
     check      Run all checks defined in .pre-commit-config.yaml.
     clean      Clean the working directory from temporary files and caches.
-    docker     Create docker-image for project.
     docs       Create sphinx documentation for the project.
     finalize   Finalize the main env.
     help       Show the help prompt.

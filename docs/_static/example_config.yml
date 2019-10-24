@@ -7,7 +7,6 @@ service:
     readme: 'README.md'
     allowed_hosts:
         - '*'
-    use_prometheus: true
     use_default_endpoints:
         - alive
         - config

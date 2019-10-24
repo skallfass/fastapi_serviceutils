@@ -1,5 +1,5 @@
 usage: create_service [-h] -n SERVICE_NAME -p SERVICE_PORT -a AUTHOR -e
-                      AUTHOR_EMAIL [-prom] -ep ENDPOINT -o OUTPUT_DIR
+                      AUTHOR_EMAIL -ep ENDPOINT -o OUTPUT_DIR
 
 create new service based on fastapi using fastapi_serviceutils.
 
@@ -15,8 +15,6 @@ optional arguments:
                         the name of the author of the service.
   -e AUTHOR_EMAIL, --author_email AUTHOR_EMAIL
                         the email of the author of the service.
-  -prom, --use_prometheus
-                        expose metrics for prometheus-usage.
   -ep ENDPOINT, --endpoint ENDPOINT
                         the name of the endpoint for the service to create.
                         ATTENTION: only lower ascii-letters, "_" and digits
