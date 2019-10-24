@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='fastapi_serviceutils',
-    version='0.3.1',
+    version='1.0.0',
     description='Utils for fastapi based services.',
     python_requires='>=3.7',
     project_urls={
@@ -56,7 +56,7 @@ setup(
             'autoflake>=1.3', 'coverage-badge>=1', 'flake8>=3.7',
             'ipython>=7.8', 'isort>=4.3', 'jedi>=0.14', 'neovim>=0.3.1',
             'pre-commit>=1.18.3', 'pudb>=2019.1', 'pygments>=2.4', 'pytest>=5',
-            'pytest-asyncio>=0.10', 'pytest-cov>=2', 'pytest-xdist==1.*,>=1.30',
+            'pytest-asyncio>=0.10', 'pytest-cov>=2', 'pytest-xdist>=1.30',
             'sphinx>=2', 'sphinx-autodoc-typehints>=1.6',
             'sphinx-rtd-theme>=0.4.3', 'yapf>=0.27'
         ],
@@ -64,7 +64,7 @@ setup(
             'autoflake>=1.3', 'coverage-badge>=1', 'flake8>=3.7',
             'ipython>=7.8', 'isort>=4.3', 'jedi>=0.14', 'neovim>=0.3.1',
             'pre-commit>=1.18.3', 'pudb>=2019.1', 'pygments>=2.4', 'pytest>=5',
-            'pytest-asyncio>=0.10', 'pytest-cov>=2', 'pytest-xdist==1.*,>=1.30',
+            'pytest-asyncio>=0.10', 'pytest-cov>=2', 'pytest-xdist>=1.30',
             'sphinx>=2', 'sphinx-autodoc-typehints>=1.6',
             'sphinx-rtd-theme>=0.4.3', 'yapf>=0.27'
         ]

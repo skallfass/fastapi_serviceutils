@@ -1148,7 +1148,7 @@ more-itertools = "*"
 devs = []
 
 [metadata]
-content-hash = "822f543f36c81c270fe05d139e57f847e69f748728c36252149304407fc2b7b1"
+content-hash = "af6c0d001b46913d4c3c8b5bd9f514f8613d1006fd7e7263f4473666328f1e2d"
 python-versions = ">=3.7"
 
 [metadata.hashes]

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastapi_serviceutils"
-version = "0.3.1"
+version = "1.0.0"
 license = "MIT"
 description = "Utils for fastapi based services."
 authors = [
@@ -38,7 +38,7 @@ pygments = ">=2.4"
 pytest = ">=5"
 pytest-asyncio = ">=0.10"
 pytest-cov = ">=2"
-pytest-xdist = "==1.*,>=1.30"
+pytest-xdist = ">=1.30"
 sphinx = ">=2"
 sphinx-autodoc-typehints = ">=1.6"
 sphinx-rtd-theme = ">=0.4.3"
