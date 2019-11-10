@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := help
-SHELL := bash
+SHELL := zsh
 
 .PHONY : check clean docker docs finalize info init tests update help
-.SILENT: check clean docker docs finalize info init tests update _create_devs_env _create_main_env _update_devs_env _update_main_env
+.SILENT: check clean docker docs finalize info init tests update _create_env _update_env
 
 python_meant=$(cat .python-version)
 python_used=$(which python)
@@ -15,72 +15,75 @@ info:
 	echo "Project:"
 	echo "========"
 	echo "version: $(value project_version)"
-	echo "" && \
-	echo 'Python:' && \
-	echo '=======' && \
-	echo "used python: $(value python_used)" && \
-	echo "version:     $(value python_version)" && \
-	echo "" && \
-	echo "Info about current environment:" && \
-	echo '===============================' && \
-	dephell inspect venv && \
-	echo "" && \
-	echo "Outdated dependencies:" && \
-	echo '=====================' && \
-	dephell deps outdated
+	echo ""
+	echo 'Python:'
+	echo '======='
+	echo "used python: $(value python_used)"
+	echo "version:     $(value python_version)"
+	echo ""
+	echo "Info about current environment:"
+	echo '==============================='
+	poetry show
 
 # Clean the working directory from temporary files and caches.
 clean:
-	rm -rf htmlcov && \
-	rm -rf *.egg-info && \
-	rm -rf dist && \
-	rm -rf **/__pycache__ && \
-	rm -rf **/**/__pycache__ && \
-	rm -rf **/**/**/__pycache__ && \
-	rm -rf docs/_build && \
-	rm -rf docs/api && \
-	rm -rf .pytest_cache && \
-	rm -f .coverage
+	rm -rf htmlcov; \
+	rm -rf *.egg-info; \
+	rm -rf dist; \
+	rm -rf **/__pycache__; \
+	rm -rf docs/_build; \
+	rm -rf docs/api; \
+	rm -rf .pytest_cache; \
+	rm -rf .coverage; \
+	rm -rf log; \
+	rm -rf pip-wheel-metadata
 
-_create_devs_env:
-	dephell venv create --env devs --python=$(value python_meant)
+_create_env:
+	poetry install
 
-_update_devs_env:
-	dephell deps install --env devs
+_update_env:
+	poetry update
 
-_create_main_env:
-	dephell venv create --env main --python=$(value python_meant)
+_coverage_badge:
+	coverage-badge -f -o docs/_static/coverage.svg
 
-_update_main_env:
-	dephell deps install --env main
+_lock_it:
+	poetry lock
+	dephell deps convert --to requirements.txt
+	cp requirements.txt docs/doc_requirements.txt
+
+_makefile_doc:
+	make help > docs/makefile_help.txt
+
+_extract_docstrings:
+	sphinx-apidoc -o docs/api --force --implicit-namespaces --module-first fastapi_serviceutils
+
+_html_documentation:
+	PYTHONPATH=. sphinx-build -b html docs docs/_build
+
+_servicetools_doc:
+	poetry run create_service --help > docs/create_service_help.txt && \
 
 # Run tests using pytest.
 tests:
-	PYTHONPATH=. pytest -s
+	docker-compose down; docker-compose up -d; sleep 2; pytest tests; docker-compose down
 
 # Finalize the main env.
-finalize: update tests
+finalize: tests _lock_it
 
 # Create sphinx documentation for the project.
-docs: update
-	make help > docs/makefile_help.txt && \
-	poetry run create_service --help > docs/create_service_help.txt && \
-	coverage-badge -f -o docs/_static/coverage.svg ; \
-	sphinx-apidoc -o docs/api --force --module-first fastapi_serviceutils && \
-	PYTHONPATH=. sphinx-build -b html docs docs/_build
+docs: tests _coverage_badge _makefile_doc _servicetools_doc _extract_docstrings _html_documentation _lock_it
+
+doc: _makefile_doc _servicetools_doc _extract_docstrings _html_documentation
 
 # Initialize project
-init: _create_main_env _create_devs_env _update_main_env _update_devs_env
-	poetry lock
+init: _create_env _lock_it
 
 # Update environments based on pyproject.toml definitions.
-update: _update_main_env _update_devs_env
-	poetry lock; \
-	dephell deps convert --to requirements.txt && \
-	cp requirements.txt docs/doc_requirements.txt
+update: _update_env _lock_it
 
 # Run all checks defined in .pre-commit-config.yaml.
-check: update
+check:
 	pre-commit run --all-files
 
 # Show the help prompt.

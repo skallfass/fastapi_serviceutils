@@ -1,0 +1,37 @@
+service:
+    name: 'exampleservice'
+    mode: 'devl'
+    port: 50001
+    description: 'Example tasks'
+    apidoc_dir: 'docs/_build'
+    readme: 'README.md'
+    allowed_hosts:
+        - '*'
+    use_default_endpoints:
+        - alive
+        - config
+external_resources:
+    services: null
+    databases: null
+    other: null
+logger:
+    path: './log/EXAMPLESERVICE'
+    filename: 'service_{mode}.log'
+    level: 'debug'
+    rotation: '1 days'
+    retention: '1 months'
+    format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> [id: {extra[request_id]}] - <level>{message}</level>"
+available_environment_variables:
+    env_vars:
+        - SERVICE__MODE
+        - SERVICE__PORT
+        - LOGGER__LEVEL
+        - LOGGER__PATH
+        - LOGGER__FILENAME
+        - LOGGER__ROTATION
+        - LOGGER__RETENTION
+        - LOGGER__FORMAT
+    external_resources_env_vars:
+        - EXTERNAL_RESOURCES__API__URL
+        - EXTERNAL_RESOURCES__API__SCHEMA
+    rules_env_vars: []

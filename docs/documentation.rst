@@ -5,11 +5,13 @@ Documentation
 -------------
 The project's developer documentation is written using Sphinx_.
 
-The documentation sources can be found in the ``docs`` subdirectory. They are
-written using restructuredText_.
+The documentation sources can be found in the ``docs`` subdirectory.
+They are using restructuredText_-files.
 
 The API-documentation is auto-generated from the docstrings of modules, classes,
-and functions. We're using the `Google docstring standard`_ for documentation.
+and functions.
+For documentation inside the source-code the `Google docstring standard`_ is
+used.
 
 To generate the documentation, run
 
@@ -17,10 +19,11 @@ To generate the documentation, run
 
     make docs
 
-The generated HTML files will be in the ``docs/_build`` directory.
+The created documentation (as html files) will be inside the ``docs/_build``
+directory.
 
 There is also a swagger-documentation to be used for users of the service.
-The documentation is at:
+After starting the service the documentation can be viewed at:
 
 * http://0.0.0.0:<SERVICE_PORT>/docs
 * http://0.0.0.0:<SERVICE_PORT>/redoc

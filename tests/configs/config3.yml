@@ -1,0 +1,32 @@
+service:
+    name: 'exampleservice'
+    mode: 'test'
+    port: 5002
+    description: 'Example tasks'
+    apidoc_dir: 'docs/_build'
+    readme: 'README.md'
+    allowed_hosts:
+        - '*'
+    use_default_endpoints:
+        - alive
+        - config
+external_resources:
+    services: null
+    databases: null
+    other:
+        something:
+            containing:
+                - 1
+                - {}
+                - []
+logger:
+    path: './log/EXAMPLESERVICE'
+    filename: 'service_{mode}.log'
+    level: 'debug'
+    rotation: '1 days'
+    retention: '1 months'
+    format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> [{extra[request_id]}] - <level>{message}</level>"
+available_environment_variables:
+    env_vars: []
+    external_resources_env_vars: []
+    rules_env_vars: []

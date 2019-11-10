@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "fastapi_serviceutils"
-version = "1.0.0"
+version = "2.0.0"
 license = "MIT"
 description = "Utils for fastapi based services."
 authors = [
   "Simon Kallfass <skallfass@ouroboros.info>",
 ]
 readme = "README.md"
-include = ["README.md", "fastapi_serviceutils/cli/.fastapi_serviceutils_config.yml"]
+include = ["README.md"]
 repository = "https://github.com/skallfass/fastapi_serviceutils"
 homepage = "https://fastapi-serviceutils.readthedocs.io/en/latest/"
-keywords = ["python", "fastapi"]
+keywords = ["python", "fastapi", "webservice", "service-utils"]
 classifiers = [
     "Operating System :: Unix",
     "License :: OSI Approved :: MIT License",
@@ -18,10 +18,15 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
+backoff = ">=1.8"
 cookiecutter = ">=1.6"
+databases = { version = ">=0.2", extras = ["postgresql"] }
 fastapi = { version = ">=0.42", extras = ["all"] }
 loguru = ">=0.3"
-python = ">=3.7"
+psycopg2 = ">=2.8"
+python = ">=3.7,<4"
+requests = ">=2.22.0"
+sqlalchemy = ">=1.3"
 toolz = ">=0.10"
 
 [tool.poetry.dev-dependencies]
@@ -35,6 +40,7 @@ neovim = ">=0.3.1"
 pre-commit = ">=1.18.3"
 pudb = ">=2019.1"
 pygments = ">=2.4"
+pylint = ">=2.4.3"
 pytest = ">=5"
 pytest-asyncio = ">=0.10"
 pytest-cov = ">=2"

@@ -58,7 +58,7 @@ This will create the dev environment exampleservice/dev. Activate it using:
 
 .. code-block:: bash
 
-       dephell venv shell --env devs
+       poetry shell
 
 **Note:**
 
@@ -67,7 +67,7 @@ project in a new terminal using
 
 .. code-block:: bash
 
-       dephell venv shell --env devs
+       poetry shell
 
 **ATTENTION:** the environment should also be activated before using ``make``.
 

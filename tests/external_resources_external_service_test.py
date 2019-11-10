@@ -1,32 +1,23 @@
-from fastapi_serviceutils.external_resources import call_rest_service
+from pathlib import Path
 from typing import Any
 
-
-
-from pathlib import Path
-
-import pytest
-from starlette.testclient import TestClient
-
-from fastapi_serviceutils.default_endpoints.alive import Alive
-from fastapi_serviceutils.service import make_app
 from pydantic import BaseModel
 from pydantic import Schema
+from starlette.testclient import TestClient
+
+from fastapi_serviceutils import make_app
+from fastapi_serviceutils.utils.external_resources.services import call_service
+
+app = make_app(
+    config_path=Path('tests/configs/config.yml'),
+    version='0.1.0',
+    endpoints=[],
+    enable_middlewares=[],
+    additional_middlewares=[],
+)
 
 
-def _app():
-    return make_app(
-        config_path=Path('tests/config.yml'),
-        version='0.1.0',
-        endpoints=[],
-        enable_middlewares=[],
-        additional_middlewares=[],
-    )
-
-CLIENT = TestClient(_app())
-
-
-class TestModel(BaseModel):
+class ExampleModel(BaseModel):
     args: dict
     data: str
     files: dict
@@ -37,18 +28,15 @@ class TestModel(BaseModel):
     json_: Any = Schema(None, alias='json')
 
 
-@pytest.mark.parametrize(
-    'params, url, model',
-    [
-        (
-            None,
-            'https://httpbin.org/post',
-            TestModel
-        )
-    ]
-)
-@pytest.mark.asyncio
-async def test_call_rest_service(params, url, model):
+@app.post('/test')
+async def serviceendpoint():
+    url = app.services['testservice'].url
+    response = await call_service(url=url, params=None, model=ExampleModel)
+    return response
+
+
+def test_call_rest_service():
     """Test if endpoint "/api/alive/" works as expected."""
-    response = await call_rest_service(url=url, params=params, model=TestModel)
-    assert isinstance(response, TestModel)
+    with TestClient(app) as client:
+        response = client.post('/test')
+    assert ExampleModel.parse_obj(response.json())

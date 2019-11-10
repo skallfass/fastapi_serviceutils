@@ -6,8 +6,7 @@ Dependency management
 
 We use Poetry_ including the dependency definition inside the
 ``pyproject.toml`` and ``python-venv`` for environment management.
-For a wrapper around these tools we use Dephell_ and ``make`` for easier
-workflow.
+Additionally we use Dephell_ and ``make`` for easier workflow.
 
 .. code-block:: bash
     :caption: dependency-management files

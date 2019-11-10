@@ -1,0 +1,26 @@
+external_resources:
+    services: null
+    databases:
+        testdb:
+            dsn: 'postgresql://postgres:1234@localhost:5434/monitordb'
+            databasetype: 'postgres'
+    other: null
+logger:
+    path: './log/EXAMPLESERVICE'
+    filename: 'service_{mode}.log'
+    level: 'debug'
+    rotation: '1 days'
+    retention: '1 months'
+    format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> [{extra[request_id]}] - <level>{message}</level>"
+available_environment_variables:
+    env_vars:
+        - EXAMPLESERVICE_SERVICE__MODE
+        - EXAMPLESERVICE_SERVICE__PORT
+        - EXAMPLESERVICE_LOGGER__LEVEL
+        - EXAMPLESERVICE_LOGGER__PATH
+        - EXAMPLESERVICE_LOGGER__FILENAME
+        - EXAMPLESERVICE_LOGGER__ROTATION
+        - EXAMPLESERVICE_LOGGER__RETENTION
+        - EXAMPLESERVICE_LOGGER__FORMAT
+    external_resources_env_vars: []
+    rules_env_vars: []

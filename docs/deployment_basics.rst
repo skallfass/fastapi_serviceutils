@@ -1,10 +1,10 @@
 Basics
-------
+^^^^^^
 
 .. include:: sources.rst
 
 Docker
-^^^^^^
+""""""
 
 The basic Dockerfile_ should look like:
 
@@ -12,7 +12,7 @@ The basic Dockerfile_ should look like:
 
 
 Docker-compose
-^^^^^^^^^^^^^^
+""""""""""""""
 
 The service can be deployed with `Docker compose`_ using the
 `Docker compose file`_:
@@ -24,7 +24,7 @@ The service can be deployed with `Docker compose`_ using the
 
 
 Environment-variables
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 Setting environment-variables overwrites the default values defined in the
 :ref:`config`.

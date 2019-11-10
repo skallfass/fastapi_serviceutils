@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """Contain the configuration for the sphinx-documentation of the service."""
 
-project = 'fastapi_serviceutils'
-copyright = '2019, Skallfass'
-author = 'Skallfass'
-release = version = '0.1.0'
+project = 'fastapi-serviceutils'
+copyright = '2019, Simon Kallfass (MIT-License)'
+author = 'Simon Kallfass'
+release = version = '2.0.0'
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -25,7 +25,7 @@ exclude_patterns = [
 ]
 
 html_theme = 'sphinx_rtd_theme'
-pygments_style = 'monokai'
+pygments_style = 'solarized-dark'
 
 html_static_path = ['_static']
 
@@ -42,6 +42,11 @@ html_theme_options = {
     'navigation_depth': 5,
     'includehidden': True,
     'titles_only': False
+}
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3',
+               None),
 }
 
 napoleon_google_docstring = True

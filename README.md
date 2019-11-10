@@ -31,7 +31,7 @@ After cloning the repository initialize the development environment using:
 
 This will create the dev environment exampleservice/dev. Activate it using:
 ```bash
-    dephell venv shell --env devs
+    poetry shell
 ```
 
 **Note:**
@@ -39,7 +39,7 @@ This will create the dev environment exampleservice/dev. Activate it using:
 Make sure to always activate the environment when you start working on the
 project in a new terminal using
 ```bash
-    dephell venv shell --env devs
+    poetry shell
 ```
 
 **ATTENTION:** the environment should also be activated before using ``make``.

@@ -20,7 +20,7 @@ Activate it.
 
    .. code-block:: bash
 
-       dephell venv shell --env devs
+       poetry shell
 
 
 To update dependencies and ``poetry.lock``:

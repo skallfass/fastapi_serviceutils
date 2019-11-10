@@ -9,6 +9,7 @@ Helpers for development of fastapi_serviceutils.
 
     check      Run all checks defined in .pre-commit-config.yaml.
     clean      Clean the working directory from temporary files and caches.
+    doc        Create sphinx documentation for the project.
     docs       Create sphinx documentation for the project.
     finalize   Finalize the main env.
     help       Show the help prompt.

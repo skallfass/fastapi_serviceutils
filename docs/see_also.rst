@@ -11,16 +11,25 @@ Internal documentation:
 
 Used tools:
 
+* Cookiecutter_
 * Dephell_
 * Docker_
 * `Docker compose`_
-* FastAPI_
 * Make_
 * Poetry_
 * restructuredText_
 * Sphinx_
 * Tmux_
 * Tmuxp_
+
+Used packages:
+
+* Databases_
+* FastAPI_
+* Loguru_
+* Requests_
+* Toolz_
+* SQLAlchemy_
 
 Additional sources:
 

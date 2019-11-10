@@ -1,6 +1,6 @@
 session_name: fastapi_serviceutils
 start_directory: "${PWD}"
-shell_command_before: source "/home/skallfass/.local/share/dephell/venvs/fastapi_serviceutils-7Jam/devs/bin/activate"
+shell_command_before: source "$VIRTUAL_ENV/bin/activate"
 environment:
     PYTHONPATH: ${PWD}
     SHELL: /usr/bin/zsh
@@ -14,5 +14,5 @@ windows:
           - focus: true
           - shell_command:
               - make update
-                #- shell_command:
-                #    - pytest --looponfail
+          - shell_command:
+              - pytest --looponfail
