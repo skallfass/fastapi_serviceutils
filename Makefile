@@ -32,7 +32,6 @@ clean:
 	rm -rf dist; \
 	rm -rf **/__pycache__; \
 	rm -rf docs/_build; \
-	rm -rf docs/api; \
 	rm -rf .pytest_cache; \
 	rm -rf .coverage; \
 	rm -rf log; \

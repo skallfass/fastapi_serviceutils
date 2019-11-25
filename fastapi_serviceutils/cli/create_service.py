@@ -130,7 +130,7 @@ def _create_context(params: Namespace):
 
 def main():
     """Combine required parameters, clone the template, create the service."""
-    repo_url = 'git+ssh://git@github.com/skallfass/fastapi_serviceutils_template.git'
+    repo_url = 'https://github.com/skallfass/fastapi_serviceutils_template.git'
     params = _build_arguments(sys.argv[1:])
     create_service_result = _create_service_folder(
         repo_url=repo_url,

@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='fastapi_serviceutils',
-    version='2.0.0',
+    version='2.0.1',
     description='Utils for fastapi based services.',
     python_requires='<4,>=3.7',
     project_urls={
@@ -53,27 +53,18 @@ setup(
     ],
     package_data={},
     install_requires=[
-        'backoff>=1.8', 'cookiecutter>=1.6', 'databases[postgresql]>=0.2',
-        'fastapi[all]>=0.42', 'loguru>=0.3', 'psycopg2>=2.8',
-        'requests>=2.22.0', 'sqlalchemy>=1.3', 'toolz>=0.10'
+        'cookiecutter>=1.6', 'databases[postgresql]>=0.2', 'fastapi[all]>=0.42',
+        'loguru>=0.3', 'psycopg2>=2.8', 'requests>=2.22.0', 'sqlalchemy>=1.3',
+        'toolz>=0.10'
     ],
     extras_require={
-        'devs': [
+        'dev': [
             'autoflake>=1.3', 'coverage-badge>=1', 'flake8>=3.7',
-            'ipython>=7.8', 'isort>=4.3', 'jedi>=0.14', 'neovim>=0.3.1',
-            'pre-commit>=1.18.3', 'pudb>=2019.1', 'pygments>=2.4', 'pytest>=5',
+            'ipython>=7.8', 'jedi>=0.14', 'neovim>=0.3.1', 'pudb>=2019.1',
+            'pygments>=2.4', 'pylint>=2.4.3', 'pytest>=5',
             'pytest-asyncio>=0.10', 'pytest-cov>=2', 'pytest-xdist>=1.30',
             'sphinx>=2', 'sphinx-autodoc-typehints>=1.6',
             'sphinx-rtd-theme>=0.4.3', 'yapf>=0.27'
-        ],
-        'dev': [
-            'autoflake>=1.3', 'coverage-badge>=1', 'flake8>=3.7',
-            'ipython>=7.8', 'isort>=4.3', 'jedi>=0.14', 'neovim>=0.3.1',
-            'pre-commit>=1.18.3', 'pudb>=2019.1', 'pygments>=2.4',
-            'pylint>=2.4.3', 'pytest>=5', 'pytest-asyncio>=0.10',
-            'pytest-cov>=2', 'pytest-xdist>=1.30', 'sphinx>=2',
-            'sphinx-autodoc-typehints>=1.6', 'sphinx-rtd-theme>=0.4.3',
-            'yapf>=0.27'
         ]
     },
 )
