@@ -34,7 +34,7 @@ from .utils.docs import mount_apidoc
 from .utils.external_resources.dbs import add_databases_to_app
 from .utils.external_resources.services import add_services_to_app
 
-__version__ = '2.0.1'
+__version__ = '2.1.0'
 
 
 def include_endpoints_and_middlewares_to_app(

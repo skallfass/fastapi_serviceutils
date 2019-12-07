@@ -17,7 +17,7 @@ external_resources:
             servicetype: 'rest'
     databases:
         testdb:
-            dsn: 'postgresql://postgres:1234@localhost:5434/monitordb'
+            dsn: 'postgresql://postgres:1234@localhost:50005/monitordb'
             databasetype: 'postgres'
             min_size: 5
             max_size: 20
@@ -31,13 +31,13 @@ logger:
     format: "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> [{extra[request_id]}] - <level>{message}</level>"
 available_environment_variables:
     env_vars:
-        - EXAMPLESERVICE_SERVICE__MODE
-        - EXAMPLESERVICE_SERVICE__PORT
-        - EXAMPLESERVICE_LOGGER__LEVEL
-        - EXAMPLESERVICE_LOGGER__PATH
-        - EXAMPLESERVICE_LOGGER__FILENAME
-        - EXAMPLESERVICE_LOGGER__ROTATION
-        - EXAMPLESERVICE_LOGGER__RETENTION
-        - EXAMPLESERVICE_LOGGER__FORMAT
+        - EXAMPLESERVICE__SERVICE__MODE
+        - EXAMPLESERVICE__SERVICE__PORT
+        - EXAMPLESERVICE__LOGGER__LEVEL
+        - EXAMPLESERVICE__LOGGER__PATH
+        - EXAMPLESERVICE__LOGGER__FILENAME
+        - EXAMPLESERVICE__LOGGER__ROTATION
+        - EXAMPLESERVICE__LOGGER__RETENTION
+        - EXAMPLESERVICE__LOGGER__FORMAT
     external_resources_env_vars: []
     rules_env_vars: []

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastapi_serviceutils"
-version = "2.0.1"
+version = "2.1.0"
 license = "MIT"
 description = "Utils for fastapi based services."
 authors = [
@@ -20,8 +20,8 @@ classifiers = [
 [tool.poetry.dependencies]
 cookiecutter = ">=1.6"
 databases = { version = ">=0.2", extras = ["postgresql"] }
-fastapi = { version = ">=0.42", extras = ["all"] }
-loguru = ">=0.3"
+fastapi = { version = ">=0.44", extras = ["all"] }
+loguru = ">=0.4"
 psycopg2 = ">=2.8"
 python = ">=3.7,<4"
 requests = ">=2.22.0"

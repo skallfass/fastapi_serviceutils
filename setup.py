@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='fastapi_serviceutils',
-    version='2.0.1',
+    version='2.1.0',
     description='Utils for fastapi based services.',
     python_requires='<4,>=3.7',
     project_urls={
@@ -53,8 +53,8 @@ setup(
     ],
     package_data={},
     install_requires=[
-        'cookiecutter>=1.6', 'databases[postgresql]>=0.2', 'fastapi[all]>=0.42',
-        'loguru>=0.3', 'psycopg2>=2.8', 'requests>=2.22.0', 'sqlalchemy>=1.3',
+        'cookiecutter>=1.6', 'databases[postgresql]>=0.2', 'fastapi[all]>=0.44',
+        'loguru>=0.4', 'psycopg2>=2.8', 'requests>=2.22.0', 'sqlalchemy>=1.3',
         'toolz>=0.10'
     ],
     extras_require={

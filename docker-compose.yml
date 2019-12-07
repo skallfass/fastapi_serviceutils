@@ -4,7 +4,7 @@ services:
   testdb:
     image: postgres:11.2-alpine
     ports:
-      - "5434:5432"
+      - "50005:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
